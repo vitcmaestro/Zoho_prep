@@ -9,8 +9,10 @@ public class SieveOfSundaram {
         boolean[] primebool = new boolean[limit];
         int n = limit/2;
         for(int i =0;i<n;i++)
+            primebool[i] = false;
+        for(int i =1;i<n;i++)
         {
-            for(int j =i;(i+j+2*i*j)<n+1;j++)
+            for(int j =i;j<=(n-i)/(2*i+1);j++)
                 primebool[i+j+(2*i*j)] = true;
         }
         display(primebool);
@@ -19,8 +21,8 @@ public class SieveOfSundaram {
     {
         System.out.print("\nPrimes = 2 3 ");
         for (int i = 2; i < primes.length/2; i++){
-            System.out.println(primes[i]+" "+i);
-            if (primes[i])
+            //System.out.println(primes[i]+" "+i);
+            if (!primes[i])
                 System.out.print((2 *i + 1) +" ");
         }
         System.out.println();
